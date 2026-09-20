@@ -1,0 +1,16 @@
+PlayerMapTracking/[Ll]ibrary/
+PlayerMapTracking/[Tt]emp/
+PlayerMapTracking/[Oo]bj/
+PlayerMapTracking/[Bb]uild/
+PlayerMapTracking/[Bb]uilds/
+PlayerMapTracking/[Ll]ogs/
+PlayerMapTracking/[Uu]ser[Ss]ettings/
+
+PlayerMapTracking/.vs/
+PlayerMapTracking/.vscode/
+PlayerMapTracking/.idea/
+
+PlayerMapTracking/*.csproj
+PlayerMapTracking/*.sln
+PlayerMapTracking/*.user
+PlayerMapTracking/*.tmp
