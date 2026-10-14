@@ -5,16 +5,19 @@ public class PlayerDataTracker : MonoBehaviour
 {
     private string filePath;
     private float timer = 0f;
+
     public float recordInterval = 0.5f;
+
+    private ZoneDetector zoneDetector;
 
     void Start()
     {
+        zoneDetector = GetComponent<ZoneDetector>();
+
         filePath = Application.dataPath + "/PlayerMovement.csv";
 
-        if (!File.Exists(filePath))
-        {
-            File.WriteAllText(filePath, "Time,X,Y,Z\n");
-        }
+        // Create a new CSV for each test run
+        File.WriteAllText(filePath, "Time,X,Y,Z,Zone\n");
     }
 
     void Update()
@@ -32,11 +35,19 @@ public class PlayerDataTracker : MonoBehaviour
     {
         Vector3 position = transform.position;
 
+        string zone = "None";
+
+        if (zoneDetector != null)
+        {
+            zone = zoneDetector.currentZone;
+        }
+
         string data =
             Time.time.ToString("F2") + "," +
             position.x.ToString("F2") + "," +
             position.y.ToString("F2") + "," +
-            position.z.ToString("F2") + "\n";
+            position.z.ToString("F2") + "," +
+            zone + "\n";
 
         File.AppendAllText(filePath, data);
     }
